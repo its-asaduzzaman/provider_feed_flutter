@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider_feed/calculation/cal_functions.dart';
 import 'package:provider_feed/screens/my_home_screen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => CalFunction()),
+    ],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
