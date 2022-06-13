@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider_feed/widgets/button_widget.dart';
 import 'package:provider_feed/widgets/input_widget.dart';
+import 'package:provider_feed/calculation/cal_functions.dart';
 
 class MyHomePage extends StatelessWidget {
-  final TextEditingController _height = TextEditingController();
+  final _height = TextEditingController();
 
-  final TextEditingController _weight = TextEditingController();
+  final _weight = TextEditingController();
+
+  CalFunction cal = CalFunction();
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -63,6 +68,10 @@ class MyHomePage extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(20)),
               color: Colors.brown.shade300,
             ),
+            child: Center(
+
+              // child: Text('${result}'),
+            ),
           ),
           SizedBox(
             height: 20,
@@ -70,10 +79,18 @@ class MyHomePage extends StatelessWidget {
           Container(
             padding: EdgeInsets.only(left: 30, right: 30),
             width: 250,
-            child: ButtonWidget(
-                backgroundColor: Colors.brown,
-                text: 'Cal',
-                textColor: Colors.white),
+            child: GestureDetector(
+              onTap: () {
+                var h = int.parse(_height.text);
+                var w = int.parse(_weight.text);
+
+               cal.bmiCal(h, w);
+              },
+              child: ButtonWidget(
+                  backgroundColor: Colors.brown,
+                  text: 'Cal',
+                  textColor: Colors.white),
+            ),
           ),
         ],
       ),

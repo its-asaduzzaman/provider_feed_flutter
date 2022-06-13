@@ -19,6 +19,7 @@ class TextFieldWidget extends StatelessWidget {
     return TextField(
       maxLines: maxLine,
       controller: textController,
+      keyboardType: TextInputType.number,
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.brown.shade50,
