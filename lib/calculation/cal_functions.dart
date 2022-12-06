@@ -8,7 +8,7 @@ class CalFunction with ChangeNotifier {
   void bmiCal(double height, double weight) {
     double result = weight / ((height / 100) * (height / 100));
 
-    _finalResult = result.toString();
+    _finalResult = result.round().toString();
     notifyListeners();
   }
 }
