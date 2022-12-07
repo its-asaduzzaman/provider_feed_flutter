@@ -8,7 +8,7 @@ void main() {
     providers: [
       ChangeNotifierProvider(create: (_) => CalFunction()),
     ],
-    child: MyApp(),
+    child: const MyApp(),
   ));
 }
 
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: MyHomeScreen(),
     );
   }
 }

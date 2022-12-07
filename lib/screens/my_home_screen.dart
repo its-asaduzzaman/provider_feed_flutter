@@ -4,12 +4,12 @@ import 'package:provider_feed/widgets/button_widget.dart';
 import 'package:provider_feed/widgets/text_field_widget.dart';
 import 'package:provider_feed/calculation/cal_functions.dart';
 
-class MyHomePage extends StatelessWidget {
+class MyHomeScreen extends StatelessWidget {
   final _height = TextEditingController();
 
   final _weight = TextEditingController();
 
-  MyHomePage({Key? key}) : super(key: key);
+  MyHomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
