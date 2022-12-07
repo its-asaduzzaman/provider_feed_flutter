@@ -13,6 +13,7 @@ class MyHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("build");
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -82,15 +83,17 @@ class MyHomeScreen extends StatelessWidget {
                   borderRadius: const BorderRadius.all(Radius.circular(20)),
                   color: Colors.brown.shade300,
                 ),
-                child: Center(
-                  child: Text(
-                    'Answer : ${context.watch<CalFunction>().finalResult}',
-                    style: const TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
-                  ),
-                ),
+                child: Center(child: Consumer<CalFunction>(
+                  builder: (context, value, child) {
+                    return Text(
+                      'Answer : ${value.finalResult.toString()}',
+                      style: const TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    );
+                  },
+                )),
               ),
             ],
           ),
